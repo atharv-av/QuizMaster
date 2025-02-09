@@ -55,7 +55,7 @@ export default function Navbar({
           </button>
 
           {showDropdown && (
-            <div className="absolute right-0 mt-2 w-80 bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-lg shadow-2xl p-4 max-h-96 overflow-y-auto z-50 border border-gray-700">
+            <div className="absolute right-0 mt-2 w-96 bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-lg shadow-2xl p-4 max-h-96 overflow-y-auto z-50 border border-gray-700">
               {/* Score Badges Section */}
               <div>
                 <h3 className="font-bold border-b pb-1 mb-3 text-lg tracking-wide text-gray-200">

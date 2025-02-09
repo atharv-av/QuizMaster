@@ -5,6 +5,7 @@ function BadgeNotificationModal({ badges, onClaim, onClose }) {
   // State to keep track of the currently displayed badge index
   const [activeIndex, setActiveIndex] = useState(0);
 
+
   // Handle Previous Button Click
   const handlePrevious = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? badges.length - 1 : prevIndex - 1));

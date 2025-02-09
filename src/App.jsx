@@ -120,7 +120,7 @@ export default function App() {
 		const qualifiedStreakBadges = Object.entries(
 			BADGE_MILESTONES.STREAK_BADGES
 		)
-			.filter(([key, value]) => newStreakVal == value.streak)
+			.filter(([key, value]) => newStreakVal >= value.streak)
 			.sort((a, b) => b[1].streak - a[1].streak);
 		if (qualifiedStreakBadges.length > 0) {
 			const [badgeKey, badgeValue] = qualifiedStreakBadges[0];
@@ -222,7 +222,6 @@ export default function App() {
 					onBadgeClaim={() => {
 						setShowNotification(false);
 						setNewBadges([]);
-						
 					}}
 					earnedBadges={earnedBadges}
 					claimBadge={claimBadge}
@@ -265,7 +264,13 @@ export default function App() {
 						<QuizSummary
 							quizData={quizData}
 							score={score}
-							onRetake={startQuiz}
+							onRetake={() => {
+								setQuizState("start");
+								setTimeLeft(quizData.duration * 60);
+								setUserAnswers({});
+								setScore(0);
+								setCurrentQuestionIndex(0);
+							}}
 							userAnswers={userAnswers}
 						/>
 					)}
@@ -274,7 +279,9 @@ export default function App() {
 			{/* Modal that congratulates the user and allows them to claim their new badge(s) */}
 			{showNotification && newBadges.length > 0 && (
 				<BadgeNotificationModal
-					badges={newBadges}
+					badges={newBadges.filter(
+						(badge) => badge.claimed === false
+					)}
 					onClaim={(badgeId) => {
 						claimBadge(badgeId);
 						setNewBadges((prev) =>
