@@ -192,7 +192,7 @@ export default function App() {
 		);
 
 	return (
-		<div className="w-screen h-screen bg-gradient-to-br from-purple-900 to-blue-900 overflow-hidden relative">
+		<div className="w-screen h-screen bg-gradient-to-br from-purple-900 to-blue-900 relative">
 			{showConfetti && (
 				<Confetti
 					width={window.innerWidth}
