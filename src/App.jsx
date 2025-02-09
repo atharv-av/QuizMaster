@@ -228,12 +228,12 @@ export default function App() {
 				/>
 			</div>
 			<div className="h-full mx-auto flex items-center justify-center">
-				<div className="mx-auto bg-white shadow-2xl rounded-3xl p-8 animate-fadeIn transition-transform duration-300 transform hover:scale-105">
+				<div className="mx-auto bg-white shadow-2xl rounded-3xl p-4 mt-16 animate-fadeIn transition-transform duration-300 transform hover:scale-105">
 					{quizState === "start" && (
 						<QuizHeader quizData={quizData} onStart={startQuiz} />
 					)}
 					{quizState === "inProgress" && (
-						<>
+						<div className="space-y-4">
 							<ProgressBar
 								current={currentQuestionIndex + 1}
 								total={quizData.questions.length}
@@ -243,6 +243,8 @@ export default function App() {
 								question={
 									quizData.questions[currentQuestionIndex]
 								}
+								index={currentQuestionIndex}
+								total={quizData.questions.length}
 								onAnswer={handleAnswer}
 								nextQuestion={() => {
 									if (
@@ -258,7 +260,7 @@ export default function App() {
 								}}
 								completeQuiz={completeQuiz}
 							/>
-						</>
+						</div>
 					)}
 					{quizState === "completed" && (
 						<QuizSummary
