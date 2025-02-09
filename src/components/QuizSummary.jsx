@@ -42,9 +42,9 @@ export default function QuizSummary({
 
 	return (
 		<div className="animate-fadeIn p-6 max-w-6xl mx-auto">
-			<div className="h-[500px] w-full flex flex-col md:flex-row">
+			<div className="flex flex-col md:flex-row">
 				{/* Left Summary Panel */}
-				<div className="md:w-1/3 p-6 border-b md:border-b-0 md:border-r border-gray-300">
+				<div className="md:w-1/3 p-6 border-b md:border-b-0 md:border-r border-gray-300 mb-6 ">
 					<h2 className="text-3xl font-bold mb-4">Quiz Completed!</h2>
 					<div className="mb-4">
 						<p className="text-4xl font-bold text-blue-500">
